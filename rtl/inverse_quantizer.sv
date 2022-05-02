@@ -8,7 +8,7 @@ module inverse_quantizer(
 	wire [15:0] staged_diffq [4];    
 	assign staged_diffq[0] = step_size >> 3;
 	for(genvar i = 1; i <= 3; i = i + 1) begin
-		assign staged_diffq[i] = code[i - 1] ? staged_diffq[i - 1] + step_size >> (i - 1) : staged_diffq[i - 1];
+		assign staged_diffq[i] = code[i - 1] ? staged_diffq[i - 1] + (step_size >> (i - 1)) : staged_diffq[i - 1];
 	end
 
 
