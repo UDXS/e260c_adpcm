@@ -20,13 +20,13 @@ module inverse_quantizer(
 	assign predicted_ext = code[3] ? sample_ext - staged_diffq[3] : sample_ext + staged_diffq[3];
 
 	always_comb begin
-		if(| predicted_ext[18:16]) begin
-			if(predicted_ext[18])
-				predicted = 16'h8000;
-			else
-				predicted = 16'h7FFF;
-		end else 
+		if(predicted_ext > 0x7FFF)
+			predicted = 0x7FFF;
+		else if(-predicted_ext > 0x7FFF)
+			predicted = 0x8000;
+		else
 			predicted = predicted_ext[15:0];
+
 	end
 
 endmodule
