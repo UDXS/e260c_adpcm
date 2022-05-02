@@ -6,5 +6,8 @@ xrun \
 +xmtimescale+1ns/1ps \
 +xmoveride_timescale \
 -v rtl/quantizer.sv \
--v rtl/inquantizer.sv \
-rtl/fib_tb.sv
+-v rtl/inverse_quantizer.sv \
+-v rtl/step_adapter.sv \
+-v rtl/encoder.sv \
+-v rtl/decoder.sv \
+rtl/adpcm_tb.sv
