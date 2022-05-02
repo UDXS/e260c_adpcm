@@ -22,11 +22,12 @@ module inverse_quantizer(
 	assign predicted_ext = code[3] ? sample_ext - diffq_ext : sample_ext + diffq_ext;
 
 	always_comb begin
-		if(predicted_ext > 19'd32767)
-			predicted = 16'd32767;
-		else if ($signed(predicted_ext) < -19'd32768) 
-			predicted = -16'd32768;
-		else 
+		if(| predicted_ext[19:16]) begin
+			if(predicted_ext[19])
+				predicted = 16'h8000;
+			else
+				predicted = 16'h7FFF;
+		end else 
 			predicted = predicted_ext[15:0];
 	end
 
