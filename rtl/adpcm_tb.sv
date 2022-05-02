@@ -35,7 +35,7 @@ module adpcm_tb();
 		reset = 0;
 
 		for(i = 0; i < 256; i++) begin
-			sample = {wave_tab[i], wave_tab[i]};
+			sample = {wave_tab[i], 8'b0};
 			#1 clk = 1;
 			#1 clk = 0;
 			$display("i = %d s = 0x%X c(s) = 0x%X p(c(s))= 0x%X, ", i, sample, code, predsample);
