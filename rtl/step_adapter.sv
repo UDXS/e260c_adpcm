@@ -1,7 +1,7 @@
 module step_adapter(
-	input signed [7:0]  last_index,
+	input  [7:0]  last_index,
 	input [3:0] code,
-	output logic signed [7:0] new_index
+	output logic  [7:0] new_index
 );
 
 	reg [7:0] idx_tab [16];

@@ -1,7 +1,7 @@
 module encoder (
 	input clk,
 	input reset,
-	input signed [15:0] sample,
+	input  [15:0] sample,
 	output [3:0] code
 );
 
@@ -11,7 +11,7 @@ module encoder (
 	initial
 		$readmemh("rtl/dat/step_table.dat", step_sizes);
 
-	reg signed [15:0] predsample;
+	reg  [15:0] predsample;
 	reg [7:0] index;
 	assign step = step_sizes[index];
 
@@ -21,7 +21,7 @@ module encoder (
 		.step_size(step),
 		.code(code));
 
-	wire signed [15:0] next_predsample;
+	wire  [15:0] next_predsample;
 
 	inverse_quantizer invquant_i (
 		.prev_predicted(predsample),
