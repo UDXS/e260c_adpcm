@@ -1,8 +1,8 @@
-module encoder (
+module decoder (
 	input clk,
 	input reset,
-	input signed [15:0] sample,
-	output [3:0] code
+	input [3:0] code,
+	output reg signed [15:0] predsample
 );
 
 	reg [15:0] step_sizes [89];
@@ -11,15 +11,8 @@ module encoder (
 	initial
 		$readmemh("dat/step_table.dat", step_sizes);
 
-	reg signed [15:0] predsample;
 	reg [7:0] index;
 	assign step = step_sizes[index];
-
-	quantizer quant_i(
-		.sample(sample),
-		.prev_predicted(predsample),
-		.step_size(step),
-		.code(code));
 
 	wire signed [15:0] next_predsample;
 
