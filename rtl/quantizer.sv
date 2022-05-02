@@ -21,8 +21,8 @@ module quantizer(
 
 
 	for(genvar i = 2; i >= 0; i = i - 1) begin
-		assign code[i] = staged_diff[i + 1] >= (step_size >> i);
-		assign staged_diff[i] = staged_diff[i + 1] - (step_size >> i);
+		assign code[i] = staged_diff[i + 1] >= (step_size >> (2 - i));
+		assign staged_diff[i] = staged_diff[i + 1] - (step_size >> (2 - i));
 	end
 
 endmodule
