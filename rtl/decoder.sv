@@ -9,7 +9,7 @@ module decoder (
 	wire [15:0] step;
 
 	initial
-		$readmemh("dat/step_table.dat", step_sizes);
+		$readmemh("rtl/dat/step_table.dat", step_sizes);
 
 	reg [7:0] index;
 	assign step = step_sizes[index];

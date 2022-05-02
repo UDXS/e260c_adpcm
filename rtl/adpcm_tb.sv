@@ -25,7 +25,7 @@ module adpcm_tb();
 
 	initial begin
 		$display ("ADPCM Benchmark by D. Markarian");
-		$readmemh ("dat/wave.dat", wave_tab);
+		$readmemh ("rtl/dat/wave.dat", wave_tab);
 
 		#1 clk = 1;
 		#1 clk = 0;

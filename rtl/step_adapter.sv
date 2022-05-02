@@ -7,7 +7,7 @@ module step_adapter(
 	reg [7:0] idx_tab [16];
 
 	initial
-		$readmemh("dat/index_table.dat", idx_tab);
+		$readmemh("rtl/dat/index_table.dat", idx_tab);
 
 	wire [7:0] idx_unsat;
 	assign idx_unsat = last_index + idx_tab[code];

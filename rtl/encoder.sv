@@ -9,7 +9,7 @@ module encoder (
 	wire [15:0] step;
 
 	initial
-		$readmemh("dat/step_table.dat", step_sizes);
+		$readmemh("rtl/dat/step_table.dat", step_sizes);
 
 	reg signed [15:0] predsample;
 	reg [7:0] index;
