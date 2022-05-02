@@ -16,7 +16,7 @@ module quantizer(
 
 	assign code[3] = diff_neg;
 
-	wire  [15:0] staged_diff [4];
+	wire  signed [15:0] staged_diff [4];
 	assign staged_diff[3] = diff_norm;
 
 
